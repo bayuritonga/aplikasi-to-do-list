@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Edit Tugas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Tugas</h1>
+        <form action="/edit/{{ tugas_id }}" method="POST">
+            <div style="display: flex; align-items: center;">
+                <input type="text" name="deskripsi" value="{{ tugas.deskripsi }}" required style="flex: 1;">
+                <label style="margin-left: 10px;">
+                    <input type="checkbox" name="prioritas" {% if tugas.prioritas %} checked {% endif %}> Prioritas
+                </label>
+            </div>
+            <button type="submit">Simpan Perubahan</button>
+        </form>
+        <a href="/">Kembali ke Daftar Tugas</a>
+    </div>
+</body>
+</html>
